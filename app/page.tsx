@@ -96,9 +96,12 @@ export default function Home() {
         >
           Contribute data <ArrowRight size={15} />
         </a>
-        <button className="menu-button" aria-label="Open navigation">
-          <Menu />
-        </button>
+        <details className="mobile-menu">
+          <summary aria-label="Open navigation"><Menu /></summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#database">Database</a><a href="#community">Community</a><a href="#about">About</a><a href="#resources">Resources</a><a href="#team">Team</a>
+          </nav>
+        </details>
       </header>
 
       <section className="hero" id="top">
