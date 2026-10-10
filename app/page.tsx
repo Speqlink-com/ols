@@ -5,7 +5,6 @@ import {
   FlaskConical,
   Github,
   HeartHandshake,
-  Landmark,
   Library,
   Menu,
   Microscope,
@@ -18,7 +17,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { BiomarkerExplorer } from "@/components/biomarker-explorer";
-import { ResourceEcosystem } from "@/components/resource-ecosystem";
 
 const actors = [
   {
@@ -56,7 +54,7 @@ const team = [
   { name: "Brevin Ochieng Olunga", role: "Project collaborator", photo: "/brevin.jpeg", position: "center 24%" },
   { name: "Ahmed Abdille", role: "Project collaborator", photo: "/ehmed.jpeg", position: "center 28%" },
   { name: "George Lugonzo", role: "Project collaborator", photo: "/George Lugonzo.jpeg", position: "center 25%" },
-  { name: "John Paul Oguta", role: "Project collaborator", photo: "/john paul oguta.jpeg", position: "center 22%" },
+  { name: "John Paul Aguta", role: "Project collaborator", photo: "/john paul oguta.jpeg", position: "center 22%" },
 ];
 
 const dataRoutes = [
@@ -85,7 +83,6 @@ export default function Home() {
           <a href="#database">Database</a>
           <a href="#community">Community</a>
           <a href="#about">About</a>
-          <a href="#resources">Resources</a>
           <a href="#team">Team</a>
         </nav>
         <a
@@ -99,7 +96,7 @@ export default function Home() {
         <details className="mobile-menu">
           <summary aria-label="Open navigation"><Menu /></summary>
           <nav aria-label="Mobile navigation">
-            <a href="#database">Database</a><a href="#community">Community</a><a href="#about">About</a><a href="#resources">Resources</a><a href="#team">Team</a>
+            <a href="#database">Database</a><a href="#community">Community</a><a href="#about">About</a><a href="#team">Team</a>
           </nav>
         </details>
       </header>
@@ -142,7 +139,7 @@ export default function Home() {
           <div className="hero-routes" aria-label="Quick routes">
             <a href="#database"><Search size={17} /><span><strong>Search</strong><small>Find biomarker evidence</small></span></a>
             <a href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer"><UploadCloud size={17} /><span><strong>Submit</strong><small>Contribute a record</small></span></a>
-            <a href="#resources"><Landmark size={17} /><span><strong>Resources</strong><small>Open reference databases</small></span></a>
+            <a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer"><Github size={17} /><span><strong>Open source</strong><small>Explore the project</small></span></a>
           </div>
         </div>
       </section>
@@ -224,8 +221,6 @@ export default function Home() {
         </div>
       </section>
 
-      <ResourceEcosystem />
-
       <section className="team-section" id="team">
         <div className="section-heading team-heading">
           <div><p className="section-kicker">The people behind the platform</p><h2>Open science starts<br />with collaboration.</h2></div>
@@ -259,7 +254,7 @@ export default function Home() {
         <div className="footer-main">
           <a className="brand footer-brand" href="#top"><span className="brand-mark"><span /><span /><span /></span><span className="brand-copy"><strong>OACBDA</strong><small>Open cancer evidence for Africa</small></span></a>
           <p>Built in the open for a more representative future in cancer research and care.</p>
-          <div className="footer-links"><a href="#database">Database</a><a href="#about">About</a><a href="#resources">Resources</a><a href="#team">Team</a><a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+          <div className="footer-links"><a href="#database">Database</a><a href="#about">About</a><a href="#team">Team</a><a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer">GitHub ↗</a></div>
         </div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} OACBDA</span><span>Open access · Community led · Africa centred</span></div>
       </footer>
