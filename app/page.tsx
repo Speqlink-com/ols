@@ -23,29 +23,29 @@ const actors = [
     icon: FlaskConical,
     number: "01",
     title: "Researchers",
-    text: "Find Africa-specific evidence, spot knowledge gaps, and build stronger study cohorts.",
-    image: "/Collaborative Genomics Lab Research.png",
+    text: "Trace virus-linked biomarkers, compare regional evidence, and identify research gaps.",
+    image: "/audience-researchers-virus.png",
   },
   {
     icon: Stethoscope,
     number: "02",
     title: "Healthcare providers",
-    text: "Explore diagnostic, prognostic, and treatment-response evidence in one structured place.",
-    image: "/Collaborative Medical Data Consultation.png",
+    text: "Explore screening, diagnostic, prognostic, and response evidence with clinical context.",
+    image: "/audience-clinicians-virus.png",
   },
   {
     icon: HeartHandshake,
     number: "03",
     title: "Patients",
-    text: "Understand how biomarkers may inform care through accessible, plain-language summaries.",
-    image: "/Genetic Consultation in a Modern Clinic.png",
+    text: "Understand how cancer-associated viruses, screening, and biomarkers may inform care.",
+    image: "/audience-patients-virus.png",
   },
   {
     icon: Users,
     number: "04",
     title: "Families",
-    text: "Navigate trusted information and support better-informed conversations with care teams.",
-    image: "/Multigenerational Genetics Consultation.png",
+    text: "Navigate prevention and screening information for better-informed care conversations.",
+    image: "/audience-families-virus.png",
   },
 ];
 
@@ -54,11 +54,11 @@ const team = [
   { name: "Brevin Ochieng Olunga", role: "Project collaborator", photo: "/brevin.jpeg", position: "center 24%" },
   { name: "Ahmed Abdille", role: "Project collaborator", photo: "/ehmed.jpeg", position: "center 28%" },
   { name: "George Lugonzo", role: "Project collaborator", photo: "/George Lugonzo.jpeg", position: "center 25%" },
-  { name: "John Paul Aguta", role: "Project collaborator", photo: "/john paul oguta.jpeg", position: "center 22%" },
+  { name: "John Paul Aguta", role: "Project collaborator", photo: "/john paul aguta.jpeg", position: "center 22%" },
 ];
 
 const dataRoutes = [
-  { icon: Microscope, title: "Biomarkers", text: "Diagnostic, prognostic, predictive and risk markers", meta: "Explore marker evidence" },
+  { icon: Microscope, title: "Virus biomarkers", text: "Markers linked to HPV, EBV, hepatitis viruses, HHV-8 and more", meta: "Explore marker evidence" },
   { icon: Library, title: "Studies", text: "Published and emerging Africa-centred research", meta: "Review study context" },
   { icon: Users, title: "Populations", text: "Geography, cohorts and population-specific evidence", meta: "Compare representation" },
   { icon: Network, title: "Linked evidence", text: "Genes, variants, pathways and external accessions", meta: "Follow connections" },
@@ -68,15 +68,15 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="OACBDA home">
+        <a className="brand" href="#top" aria-label="Africa Cancer Biomarkers Database home">
           <span className="brand-mark" aria-hidden="true">
             <span />
             <span />
             <span />
           </span>
           <span className="brand-copy">
-            <strong>OACBDA</strong>
-            <small>Open cancer evidence for Africa</small>
+            <strong>ACBD</strong>
+            <small>Africa Cancer Biomarkers Database</small>
           </span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -104,23 +104,23 @@ export default function Home() {
       <section className="hero" id="top">
         <Image
           className="hero-image"
-          src="/home-heroe.png"
-          alt="African cancer researchers working with genomic data in a modern laboratory"
+          src="/acbd-virus-hero.png"
+          alt="African virologists researching cancer-associated viruses in a modern laboratory"
           fill
-          priority
+          preload
           sizes="100vw"
         />
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-content">
-          <div className="eyebrow"><span /> Africa-centred. Open by design.</div>
+          <div className="eyebrow"><span /> Africa-centred cancer-virus evidence</div>
           <h1>
-            Cancer evidence,<br />
+            Cancer biomarkers,<br />
             <em>seen through Africa.</em>
           </h1>
           <p>
-            A living, open-access repository bringing together cancer biomarkers identified
-            across African populations—for better research, diagnosis, and treatment.
+            A living database connecting biomarkers for cancer-associated viruses with the
+            African regions, populations, specimens, and studies that give them meaning.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#database">
@@ -159,9 +159,9 @@ export default function Home() {
         <h2>Global evidence is only useful when <span>everyone is represented.</span></h2>
         <div className="statement-copy">
           <p>
-            African populations remain underrepresented in cancer biomarker datasets. OACBDA
-            closes that gap by making region-specific findings easier to discover, compare,
-            and build upon.
+            African populations remain underrepresented in cancer-virus biomarker datasets. The
+            Africa Cancer Biomarkers Database closes that gap by making region-specific findings
+            easier to discover, compare, and build upon.
           </p>
           <div className="principle"><span>01</span><p><strong>Open</strong>Free to explore and designed for shared progress.</p></div>
           <div className="principle"><span>02</span><p><strong>Contextual</strong>Evidence stays connected to population and geography.</p></div>
@@ -170,15 +170,15 @@ export default function Home() {
 
       <section className="research-banner">
         <Image
-          src="/African Research Laboratory Collaboration.png"
-          alt="African scientists collaborating in a cancer genomics laboratory"
+          src="/acbd-virus-research-banner.png"
+          alt="African scientists mapping cancer-associated viruses and biomarker evidence"
           fill
           sizes="100vw"
         />
         <div className="research-caption">
           <span>Why OLS exists</span>
-          <h2>Africa should not be an afterthought in the evidence.</h2>
-          <p>Locally led research, structured context, and open discovery can help make cancer science more representative and more useful.</p>
+          <h2>Africa should not be an afterthought in cancer-virus evidence.</h2>
+          <p>Locally led virology, structured regional context, and open discovery can make prevention, screening, and cancer research more useful.</p>
         </div>
       </section>
 
@@ -211,7 +211,7 @@ export default function Home() {
         <div className="how-intro">
           <p className="section-kicker">A transparent evidence pipeline</p>
           <h2>From contribution<br />to collective knowledge.</h2>
-          <p>OACBDA is an open canvas shaped by researchers and communities across disciplines.</p>
+          <p>ACBD is a shared evidence platform shaped by virologists, cancer researchers, clinicians, and communities.</p>
           <a className="button button-dark" href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer">Submit a biomarker <ArrowRight size={17} /></a>
         </div>
         <div className="steps">
@@ -224,7 +224,7 @@ export default function Home() {
       <section className="team-section" id="team">
         <div className="section-heading team-heading">
           <div><p className="section-kicker">The people behind the platform</p><h2>Open science starts<br />with collaboration.</h2></div>
-          <p>OACBDA brings together varied backgrounds and expertise around one shared ambition: more representative cancer evidence.</p>
+          <p>ACBD brings together varied backgrounds and expertise around one shared ambition: more representative cancer-virus evidence.</p>
         </div>
         <div className="team-grid">
           {team.map((member) => (
@@ -247,16 +247,16 @@ export default function Home() {
 
       <section className="final-cta">
         <div><p className="section-kicker light">Help the evidence grow</p><h2>Your finding could<br />change the picture.</h2></div>
-        <div><p>Contribute a biomarker, improve the repository, or join the open-source community.</p><a className="button button-cream" href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer">Contribute to OACBDA <ArrowRight size={17} /></a></div>
+        <div><p>Contribute a biomarker, improve the repository, or join the open-source community.</p><a className="button button-cream" href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer">Contribute to ACBD <ArrowRight size={17} /></a></div>
       </section>
 
       <footer>
         <div className="footer-main">
-          <a className="brand footer-brand" href="#top"><span className="brand-mark"><span /><span /><span /></span><span className="brand-copy"><strong>OACBDA</strong><small>Open cancer evidence for Africa</small></span></a>
+          <a className="brand footer-brand" href="#top"><span className="brand-mark"><span /><span /><span /></span><span className="brand-copy"><strong>ACBD</strong><small>Africa Cancer Biomarkers Database</small></span></a>
           <p>Built in the open for a more representative future in cancer research and care.</p>
           <div className="footer-links"><a href="#database">Database</a><a href="#about">About</a><a href="#team">Team</a><a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer">GitHub ↗</a></div>
         </div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} OACBDA</span><span>Open access · Community led · Africa centred</span></div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} Africa Cancer Biomarkers Database</span><span>Open access · Community led · Africa centred</span></div>
       </footer>
     </main>
   );

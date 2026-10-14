@@ -1,32 +1,27 @@
-# OACBDA image-generation briefs
+# Africa Cancer Biomarkers Database — final image prompts
 
-## Shared art direction
+These project assets were generated with the built-in ImageGen workflow. All use a photorealistic scientific-editorial style, African subjects, white and sky-blue (`#87CEEC`) environments, deep navy accents, believable clinical or laboratory details, and no logos or watermarks.
 
-Use a premium editorial documentary style with authentic African people, calm natural expressions, soft daylight, subtle scientific detail, and a restrained palette led by sky blue `#87CEEC`, white, and deep navy. Images should feel trustworthy, intelligent, optimistic, and grounded—not like generic stock photography. Avoid visible brand logos, text, watermarks, exaggerated holograms, neon cyberpunk effects, distress, graphic medical procedures, or identifiable patient records. Leave deliberate negative space for interface text. Photorealistic, high detail, natural skin texture, inclusive, 16:10 unless specified otherwise.
+## `public/acbd-virus-hero.png`
 
-## 1. Homepage hero — “Cancer evidence, seen through Africa”
+Very wide 21:9 homepage hero showing an African-led molecular virology laboratory. A Black African woman virologist studies a slide at a microscope while colleagues examine scientifically plausible HPV, EBV and hepatitis-virus genomic data. Subjects occupy the right half and the left has clean negative space for headline text. Natural daylight; rigorous and optimistic; no sci-fi holograms.
 
-A cinematic editorial scene inside a contemporary African biomedical research environment. In the foreground, a Black African woman molecular scientist in a clean white lab coat studies a transparent sample slide beside a modern microscope; in the middle ground, a male data scientist reviews a subtle genomic visualization on a monitor; in the background, two clinical researchers confer beside a softly lit wall map of Africa made from connected data points. The scene communicates African-led science, open data, collaboration, and precision. Bright white laboratory, soft sky-blue accents matching `#87CEEC`, deep navy details, warm daylight, confident but human atmosphere. Wide horizontal composition, subjects concentrated on the right half, generous clean negative space on the left for a large headline. Photorealistic, premium healthcare campaign, 21:9.
+## `public/acbd-virus-research-banner.png`
 
-## 2. Researchers — “Discover what the data reveals”
+Very wide 21:9 feature image of African scientists mapping cancer-associated viruses and biomarkers. A realistic genomics laboratory monitor combines virus structures, DNA sequences, tissue microscopy and an Africa evidence map. Collaborative, precise and future-facing, with a darker lower-left area for the page caption.
 
-Two African cancer researchers, one woman and one man, collaborating at a laboratory workstation. One uses a microscope while the other studies a clean biomarker heatmap and genomic sequence visualization on a monitor. Include subtle sample racks and research notes without readable personal data. Expressions focused and curious, not posed. White laboratory, sky-blue `#87CEEC` equipment accents, soft daylight, deep navy clothing details. Leave open space in the upper left for a short heading. Photorealistic editorial science photography, 4:5 portrait.
+## `public/audience-researchers-virus.png`
 
-## 3. Healthcare providers — “Evidence closer to care”
+Vertical 4:5 editorial portrait of two Black African molecular virologists collaborating at a fluorescence microscope and a monitor showing HPV/EBV-style capsid, sequence and biomarker heatmap visuals. Authentic PPE and laboratory equipment, crop-safe faces, natural light.
 
-A Black African oncologist and laboratory clinician reviewing a biomarker report together in a bright modern hospital consultation room. The oncologist points to a tablet displaying a clean, abstract molecular profile while the clinician contributes context. No patient data, no readable medical chart, no dramatic illness cues. The mood is precise, collaborative, and reassuring. White setting, sky-blue `#87CEEC` accents, deep navy details, natural window light. Leave negative space above the subjects. Photorealistic premium healthcare editorial, 4:5 portrait.
+## `public/audience-clinicians-virus.png`
 
-## 4. Patients — “Information that makes sense”
+Vertical 4:5 portrait of a Black African oncologist and pathologist reviewing cancer-virus biomarker evidence on a tablet in a modern hospital workspace. Professional collaborative body language, no readable patient information, clear and reassuring daylight.
 
-A respectful, hopeful consultation between a Black African adult patient and an African healthcare professional. They sit at equal eye level at a simple white table while the professional explains an easy-to-understand biomarker diagram on a tablet. The patient is engaged and empowered, not distressed. Contemporary African clinic, bright white walls, sky-blue `#87CEEC` accents, small green plant, soft natural daylight. Protect privacy: no names, numbers, or readable documents. Warm documentary realism, 4:5 portrait.
+## `public/audience-patients-virus.png`
 
-## 5. Families — “Clarity for the people beside you”
+Vertical 4:5 portrait of a Black African patient receiving respectful counselling from a Black African clinician about HPV and hepatitis-virus screening and follow-up. Equal eye level, engaged and empowered patient, welcoming clinic, no distress or invasive procedures.
 
-An intergenerational African family—adult patient, partner, and older relative—having a calm, supportive conversation with a genetic counsellor in a welcoming health-centre setting. Body language communicates trust, shared understanding, and mutual support. Avoid sadness, hospital beds, or melodrama. Bright clean interior, white and sky-blue `#87CEEC` palette, subtle deep navy accents, gentle daylight. Leave negative space in the top right for interface copy. Photorealistic human-centred healthcare campaign, 4:5 portrait.
+## `public/audience-families-virus.png`
 
-## Export guidance
-
-- Hero: WebP, at least 2400 × 1080 px, landscape.
-- Audience images: WebP, at least 1200 × 1500 px, portrait.
-- Keep faces and important details away from the outer 10% crop-safe area.
-- Export one clean version without embedded text for each brief.
+Vertical 4:5 portrait of an intergenerational African family of adults learning about prevention and screening for virus-associated cancers from a clinician. Supportive natural interaction, simple abstract prevention icons on a tablet, warm textiles and calm daylight.
