@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Menu } from "lucide-react";
 
@@ -18,7 +19,7 @@ export function SiteHeader({ tone = "light" }: SiteHeaderProps) {
   return (
     <header className={`site-header site-header-${tone}`}>
       <Link className="brand" href="/" aria-label="ACBDT home">
-        <span className="brand-symbol" aria-hidden="true"><i /><i /><i /><i /></span>
+        <Image className="brand-logo" src="/logo.png" alt="" width={58} height={58} priority />
         <span className="brand-copy">
           <strong>ACBDT</strong>
           <small>Africa Cancer Biomarkers<br />Database &amp; Technology</small>

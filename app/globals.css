@@ -30,12 +30,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-header { min-height: 82px; width: 100%; padding: 0 var(--page-pad); display: flex; align-items: center; justify-content: space-between; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(247,250,252,.96); }
 .hero .site-header { position: absolute; inset: 0 0 auto; }
 .site-header-dark { color: #fff; background: linear-gradient(180deg, rgba(7,23,43,.96), rgba(7,23,43,.52) 68%, transparent); border-bottom-color: rgba(255,255,255,.12); }
-.brand { display: inline-flex; align-items: center; gap: 12px; }
-.brand-symbol { position: relative; width: 34px; height: 34px; display: grid; place-items: center; }
-.brand-symbol::before, .brand-symbol::after { content: ""; position: absolute; inset: 5px; border: 1px solid var(--sky); border-radius: 50%; }
-.brand-symbol::after { transform: rotate(60deg); border-radius: 45% 55%; }
-.brand-symbol i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); }
-.brand-symbol i:nth-child(1) { top: 3px; left: 14px; }.brand-symbol i:nth-child(2) { right: 2px; top: 15px; }.brand-symbol i:nth-child(3) { bottom: 3px; left: 14px; }.brand-symbol i:nth-child(4) { left: 2px; top: 15px; }
+.brand { display: inline-flex; align-items: center; gap: 11px; }
+.brand-logo { width: 52px; height: 52px; object-fit: contain; border-radius: 50%; filter: drop-shadow(0 5px 13px rgba(0,0,0,.16)); }
+.site-header-light .brand-logo { box-shadow: 0 0 0 1px rgba(23,40,58,.08); }
+.footer-logo { width: 68px; height: 68px; border-radius: 12px; }
 .brand-copy { display: flex; align-items: center; gap: 10px; }
 .brand-copy strong { letter-spacing: .14em; font-size: 15px; }
 .brand-copy small { border-left: 1px solid currentColor; padding-left: 10px; opacity: .58; font-size: 8px; line-height: 1.35; letter-spacing: .02em; }

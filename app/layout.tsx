@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     description: "Africa-centred cancer biomarker evidence, structured for discovery and traced to source.",
     type: "website",
   },
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

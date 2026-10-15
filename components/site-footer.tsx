@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function SiteFooter() {
@@ -5,7 +6,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-main">
         <Link className="brand footer-brand" href="/">
-          <span className="brand-symbol" aria-hidden="true"><i /><i /><i /><i /></span>
+          <Image className="brand-logo footer-logo" src="/logo.png" alt="" width={72} height={72} />
           <span className="brand-copy"><strong>ACBDT</strong><small>Africa Cancer Biomarkers<br />Database &amp; Technology</small></span>
         </Link>
         <p>A research and education platform for traceable cancer biomarker evidence in African cohorts. Not for diagnosis or treatment decisions.</p>
