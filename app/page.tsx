@@ -1,263 +1,202 @@
-import {
-  ArrowRight,
-  BookOpen,
-  Database,
-  FlaskConical,
-  Github,
-  HeartHandshake,
-  Library,
-  Menu,
-  Microscope,
-  Network,
-  Search,
-  ShieldCheck,
-  Stethoscope,
-  UploadCloud,
-  Users,
-} from "lucide-react";
 import Image from "next/image";
-import { BiomarkerExplorer } from "@/components/biomarker-explorer";
+import Link from "next/link";
+import { ArrowRight, BookOpen, Building2, ChevronDown, CircleCheck, Database, FlaskConical, HeartHandshake, Mail, MapPin, Microscope, Search, ShieldCheck, Stethoscope, Users } from "lucide-react";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+
+const pilotCountries = ["Nigeria", "Ghana", "Togo", "Benin", "Côte d’Ivoire", "Mali", "Niger", "Burkina Faso"];
+
+const cancers = [
+  { name: "Breast cancer", markers: "HER2 · BRCA1/2 · Ki-67", image: "/acbdt-breast-cancer.png", href: "/explore?cancer=Breast+cancer" },
+  { name: "Cervical cancer", markers: "HPV · p16 · E6/E7", image: "/acbdt-cervical-cancer.png", href: "/explore?cancer=Cervical+cancer" },
+  { name: "Prostate cancer", markers: "PSA · AR · genomic markers", image: "/acbdt-prostate-cancer.png", href: "/explore?cancer=Prostate+cancer" },
+];
 
 const actors = [
-  {
-    icon: FlaskConical,
-    number: "01",
-    title: "Researchers",
-    text: "Trace virus-linked biomarkers, compare regional evidence, and identify research gaps.",
-    image: "/audience-researchers-virus.png",
-  },
-  {
-    icon: Stethoscope,
-    number: "02",
-    title: "Healthcare providers",
-    text: "Explore screening, diagnostic, prognostic, and response evidence with clinical context.",
-    image: "/audience-clinicians-virus.png",
-  },
-  {
-    icon: HeartHandshake,
-    number: "03",
-    title: "Patients",
-    text: "Understand how cancer-associated viruses, screening, and biomarkers may inform care.",
-    image: "/audience-patients-virus.png",
-  },
-  {
-    icon: Users,
-    number: "04",
-    title: "Families",
-    text: "Navigate prevention and screening information for better-informed care conversations.",
-    image: "/audience-families-virus.png",
-  },
+  { icon: FlaskConical, title: "Researchers", text: "Find candidate literature, compare study context, and trace every claim back to its source." },
+  { icon: Stethoscope, title: "Clinicians", text: "Review assay, cohort, and evidence-quality context without turning research evidence into diagnosis." },
+  { icon: HeartHandshake, title: "Patients & families", text: "Learn what biomarkers are, why context matters, and which questions to bring into care conversations." },
+  { icon: Users, title: "Curators & stewards", text: "Screen candidates, verify cohort origin, record decisions, and protect scientific provenance." },
 ];
 
 const team = [
-  { name: "Suzanne Njuki", role: "Project lead", photo: "/sue.jpeg", position: "center 34%" },
-  { name: "Brevin Ochieng Olunga", role: "Project collaborator", photo: "/brevin.jpeg", position: "center 24%" },
-  { name: "Ahmed Abdille", role: "Project collaborator", photo: "/ehmed.jpeg", position: "center 28%" },
-  { name: "George Lugonzo", role: "Project collaborator", photo: "/George Lugonzo.jpeg", position: "center 25%" },
-  { name: "John Paul Aguta", role: "Project collaborator", photo: "/john paul aguta.jpeg", position: "center 22%" },
-];
-
-const dataRoutes = [
-  { icon: Microscope, title: "Virus biomarkers", text: "Markers linked to HPV, EBV, hepatitis viruses, HHV-8 and more", meta: "Explore marker evidence" },
-  { icon: Library, title: "Studies", text: "Published and emerging Africa-centred research", meta: "Review study context" },
-  { icon: Users, title: "Populations", text: "Geography, cohorts and population-specific evidence", meta: "Compare representation" },
-  { icon: Network, title: "Linked evidence", text: "Genes, variants, pathways and external accessions", meta: "Follow connections" },
+  {
+    name: "Susan Njuki",
+    role: "Project lead · Biomedical scientist",
+    email: "suzannenjuki@gmail.com",
+    country: "Israel",
+    primaryInstitute: "Hebrew University of Jerusalem, Jerusalem, Israel",
+    secondaryInstitute: "Central Veterinary Laboratories, Nairobi, Kenya",
+    bio: "Susan has a background in Biomedical Sciences, with research experience focused on identifying potential therapeutic drug targets for Glioblastoma Multiforme. She supports African students and alumni in Israeli universities across BSc, MSc, and PhD programmes, organizing lecture series, workshops, research discussions, and communities of practice for knowledge exchange and professional development.",
+    photo: "/sue.jpeg",
+    position: "center 34%",
+    confirmed: true,
+  },
+  {
+    name: "Ahmed Abbi Abdille",
+    role: "Molecular biologist & biotechnology researcher",
+    email: "ahmedabbi7@gmail.com",
+    country: "Somalia",
+    primaryInstitute: "Global Science University, Somalia",
+    secondaryInstitute: "Center for Public Health Research, Somalia",
+    bio: "Ahmed holds a PhD in Molecular Biology and Biotechnology. His research focuses on developing and evaluating antimicrobial peptides as potential therapeutic targets for cancer treatment. He supports researchers, health professionals, and students through open-science education, research conferences, communities of practice, institutional development, and capacity building.",
+    photo: "/ehmed.jpeg",
+    position: "center 28%",
+    confirmed: true,
+  },
+  {
+    name: "George Lugonzo",
+    role: "One Health scientist",
+    email: "lugonzogeorge6@gmail.com",
+    country: "Kenya",
+    primaryInstitute: "Kenya Agricultural and Livestock Research Organization (KALRO)",
+    bio: "George is a One Health scientist with a background in Microbiology and Biotechnology. His experience spans molecular diagnostics, infectious-disease research, epidemiology, bioinformatics, and data interpretation. He advances public health through vaccines and bioproducts that minimize chemical exposure, including livestock probiotics, while generating evidence for health challenges affecting people and animals.",
+    photo: "/George Lugonzo.jpeg",
+    position: "center 25%",
+    confirmed: true,
+  },
+  {
+    name: "Brevin Ochieng Olunga",
+    role: "Project collaborator",
+    country: "Profile pending",
+    primaryInstitute: "Institutional affiliation to be confirmed",
+    bio: "Brevin contributes to the collaborative development of ACBDT and its goal of making African cancer biomarker evidence easier to discover, interpret, and reuse. This is temporary profile copy pending a confirmed biography and affiliation.",
+    photo: "/brevin.jpeg",
+    position: "center 24%",
+    confirmed: false,
+  },
+  {
+    name: "John Paul Aguta",
+    role: "Project collaborator",
+    country: "Profile pending",
+    primaryInstitute: "Institutional affiliation to be confirmed",
+    bio: "John Paul supports the ACBDT collaboration and the development of an open, evidence-traceable research resource. This is temporary profile copy pending a confirmed biography and affiliation.",
+    photo: "/john paul aguta.jpeg",
+    position: "center 22%",
+    confirmed: false,
+  },
 ];
 
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Africa Cancer Biomarkers Database home">
-          <span className="brand-mark" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-          <span className="brand-copy">
-            <strong>ACBD</strong>
-            <small>Africa Cancer Biomarkers Database</small>
-          </span>
-        </a>
-        <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#database">Database</a>
-          <a href="#community">Community</a>
-          <a href="#about">About</a>
-          <a href="#team">Team</a>
-        </nav>
-        <a
-          className="header-cta"
-          href="https://forms.gle/dt2SaWUz7rH8JkKi8"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Contribute data <ArrowRight size={15} />
-        </a>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation"><Menu /></summary>
-          <nav aria-label="Mobile navigation">
-            <a href="#database">Database</a><a href="#community">Community</a><a href="#about">About</a><a href="#team">Team</a>
-          </nav>
-        </details>
-      </header>
-
       <section className="hero" id="top">
-        <Image
-          className="hero-image"
-          src="/acbd-virus-hero.png"
-          alt="African virologists researching cancer-associated viruses in a modern laboratory"
-          fill
-          preload
-          sizes="100vw"
-        />
-        <div className="hero-shade" aria-hidden="true" />
-        <div className="hero-grid" aria-hidden="true" />
+        <SiteHeader tone="dark" />
+        <Image className="hero-image" src="/acbdt-cellular-hero.png" alt="Illustrative microscopy-inspired visualization of a tumor cell spheroid" fill preload sizes="100vw" />
+        <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
-          <div className="eyebrow"><span /> Africa-centred cancer-virus evidence</div>
-          <h1>
-            Cancer biomarkers,<br />
-            <em>seen through Africa.</em>
-          </h1>
-          <p>
-            A living database connecting biomarkers for cancer-associated viruses with the
-            African regions, populations, specimens, and studies that give them meaning.
-          </p>
+          <p className="eyebrow"><span /> Evidence you can trace</p>
+          <h1>Africa&apos;s cancer biomarker evidence, <em>made legible.</em></h1>
+          <p className="hero-lede">ACBDT connects cancers, biomarkers, assays, studies, African cohorts, and source evidence—without confusing a literature mention with a verified finding.</p>
+          <form className="global-search" action="/explore" role="search">
+            <Search size={20} aria-hidden="true" /><input name="q" aria-label="Search ACBDT" placeholder="Search HER2, breast cancer, Ghana…" /><button type="submit">Search evidence <ArrowRight size={16} /></button>
+          </form>
           <div className="hero-actions">
-            <a className="button button-primary" href="#database">
-              Explore the database <ArrowRight size={17} />
-            </a>
-            <a className="text-link" href="#about">
-              Why this matters <span>↘</span>
-            </a>
-          </div>
-          <div className="hero-proof">
-            <div className="avatar-stack" aria-hidden="true">
-              <span>R</span><span>C</span><span>P</span><span>F</span>
-            </div>
-            <p><strong>Built for four communities</strong><br />from discovery to informed care</p>
-          </div>
-          <div className="hero-routes" aria-label="Quick routes">
-            <a href="#database"><Search size={17} /><span><strong>Search</strong><small>Find biomarker evidence</small></span></a>
-            <a href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer"><UploadCloud size={17} /><span><strong>Submit</strong><small>Contribute a record</small></span></a>
-            <a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer"><Github size={17} /><span><strong>Open source</strong><small>Explore the project</small></span></a>
+            <Link className="button button-primary" href="/explore">Explore the pilot <ArrowRight size={16} /></Link>
+            <Link className="text-link" href="/methods">How evidence is reviewed</Link>
           </div>
         </div>
+        <p className="hero-caption">Illustrative visualization · Not a clinical specimen</p>
       </section>
 
-      <section className="browse-section" aria-labelledby="browse-title">
-        <div className="browse-heading"><p className="section-kicker">Browse the knowledge base</p><h2 id="browse-title">One question.<br />Four ways in.</h2></div>
-        <div className="data-routes">
-          {dataRoutes.map((route, index) => {
-            const Icon = route.icon;
-            return <a href="#database" className="data-route" key={route.title}><span className="route-number">0{index + 1}</span><Icon size={23} /><h3>{route.title}</h3><p>{route.text}</p><small>{route.meta} <ArrowRight size={14} /></small></a>;
-          })}
+      <section className="capability-strip" aria-label="Platform capabilities">
+        <span><CircleCheck size={16} /> Provenance first</span><span><CircleCheck size={16} /> Cohort aware</span><span><CircleCheck size={16} /> Review status visible</span><span><CircleCheck size={16} /> Export ready</span>
+      </section>
+
+      <section className="intro-section" id="about">
+        <div><p className="section-kicker">The evidence layer</p><h2>From a search result to the <em>reason it can be trusted.</em></h2></div>
+        <div className="intro-copy">
+          <p>Global databases are excellent discovery infrastructure. ACBDT adds the African cohort verification, structured biomarker findings, provenance, and scientific review needed to interpret those records responsibly.</p>
+          <div className="principle-grid">
+            <article><span>01</span><strong>Mention is not evidence</strong><p>A country name in an abstract does not prove cohort origin.</p></article>
+            <article><span>02</span><strong>Context stays attached</strong><p>Gene, variant, protein, assay, study, and finding remain distinct.</p></article>
+          </div>
         </div>
       </section>
 
-      <section className="statement" id="about">
-        <p className="section-kicker">The missing layer in cancer research</p>
-        <h2>Global evidence is only useful when <span>everyone is represented.</span></h2>
-        <div className="statement-copy">
-          <p>
-            African populations remain underrepresented in cancer-virus biomarker datasets. The
-            Africa Cancer Biomarkers Database closes that gap by making region-specific findings
-            easier to discover, compare, and build upon.
-          </p>
-          <div className="principle"><span>01</span><p><strong>Open</strong>Free to explore and designed for shared progress.</p></div>
-          <div className="principle"><span>02</span><p><strong>Contextual</strong>Evidence stays connected to population and geography.</p></div>
-        </div>
-      </section>
-
-      <section className="research-banner">
-        <Image
-          src="/acbd-virus-research-banner.png"
-          alt="African scientists mapping cancer-associated viruses and biomarker evidence"
-          fill
-          sizes="100vw"
-        />
-        <div className="research-caption">
-          <span>Why OLS exists</span>
-          <h2>Africa should not be an afterthought in cancer-virus evidence.</h2>
-          <p>Locally led virology, structured regional context, and open discovery can make prevention, screening, and cancer research more useful.</p>
-        </div>
-      </section>
-
-      <BiomarkerExplorer />
-
-      <section className="actors-section" id="community">
+      <section className="featured-section">
         <div className="section-heading">
-          <div><p className="section-kicker light">One resource, many paths</p><h2>Built for the people<br />moving cancer care forward.</h2></div>
-          <p>From laboratory discovery to the family conversation, evidence should travel clearly and responsibly.</p>
+          <div><p className="section-kicker">Featured research pathways</p><h2>Start with a cancer.<br />Follow the biology.</h2></div>
+          <p>The first pilot focuses on five cancers and a defined biomarker vocabulary. These pathways demonstrate the intended discovery experience.</p>
+        </div>
+        <div className="cancer-grid">
+          {cancers.map((cancer, index) => (
+            <Link className="cancer-card" href={cancer.href} key={cancer.name}>
+              <Image src={cancer.image} alt={`Illustrative microscopy-inspired visualization for ${cancer.name}`} fill sizes="(max-width: 760px) 100vw, 33vw" />
+              <div className="cancer-card-shade" /><span>0{index + 1}</span>
+              <div><h3>{cancer.name}</h3><p>{cancer.markers}</p><small>Explore pathway <ArrowRight size={14} /></small></div>
+            </Link>
+          ))}
+        </div>
+        <p className="visual-disclaimer">All cellular images are illustrative visualizations and are not diagnostic microscopy.</p>
+      </section>
+
+      <section className="pilot-section">
+        <div className="pilot-panel">
+          <div className="pilot-copy">
+            <p className="section-kicker light">West Africa pilot · Phase 1</p><h2>Eight countries.<br />One reproducible protocol.</h2>
+            <p>Europe PMC supplies candidate literature. ACBDT supplies the screening decisions, verified cohort metadata, structured findings, and source-linked review.</p>
+            <Link className="button button-sky" href="/atlas">Open the coverage atlas <ArrowRight size={16} /></Link>
+          </div>
+          <div className="country-list" aria-label="West Africa pilot countries">
+            {pilotCountries.map((country, index) => <Link href={`/atlas#${country.toLowerCase().replaceAll(" ", "-")}`} key={country}><span>{String(index + 1).padStart(2, "0")}</span>{country}<ArrowRight size={14} /></Link>)}
+          </div>
+        </div>
+        <div className="pipeline" aria-label="Evidence pipeline">
+          <article><Search /><span>01</span><h3>Discover</h3><p>Reproducible country × cancer searches return candidates.</p></article>
+          <article><BookOpen /><span>02</span><h3>Screen</h3><p>Reviewers separate mentions from relevant studies.</p></article>
+          <article><Microscope /><span>03</span><h3>Verify</h3><p>Cohort, assay, biomarker, and finding are structured.</p></article>
+          <article><ShieldCheck /><span>04</span><h3>Approve</h3><p>Evidence spans and review decisions stay attached.</p></article>
+        </div>
+      </section>
+
+      <section className="evidence-empty-section">
+        <div className="section-heading">
+          <div><p className="section-kicker">Latest validated evidence</p><h2>Trust begins with an honest empty state.</h2></div>
+          <p>The pilot has not published reviewer-approved findings yet. The interface will not manufacture totals, prevalence, or strength claims to make the product look busy.</p>
+        </div>
+        <div className="research-empty">
+          <Database size={30} /><div><strong>Scientific review is in preparation</strong><p>Use Explore to test the synthetic discovery workflow. Approved evidence will appear here only after cohort verification and source-level review.</p></div><Link href="/methods">Read the protocol <ArrowRight size={15} /></Link>
+        </div>
+      </section>
+
+      <section className="actors-section">
+        <div className="section-heading section-heading-light">
+          <div><p className="section-kicker light">Built for people</p><h2>One evidence system.<br />Four ways to use it.</h2></div>
+          <p>Language, depth, and tools adapt to the task while the scientific source of truth stays consistent.</p>
         </div>
         <div className="actors-grid">
-          {actors.map((actor) => {
-            const Icon = actor.icon;
-            return (
-              <article className="actor-card" key={actor.title}>
-                <div className="actor-image">
-                  <Image src={actor.image} alt={`${actor.title} using biomarker evidence`} fill sizes="(max-width: 520px) 100vw, (max-width: 1050px) 50vw, 25vw" />
-                </div>
-                <div className="actor-top"><span>{actor.number}</span><Icon size={24} /></div>
-                <h3>{actor.title}</h3>
-                <p>{actor.text}</p>
-                <a href="#database" aria-label={`Explore resources for ${actor.title}`}>Explore resources <ArrowRight size={15} /></a>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="how-section">
-        <div className="how-intro">
-          <p className="section-kicker">A transparent evidence pipeline</p>
-          <h2>From contribution<br />to collective knowledge.</h2>
-          <p>ACBD is a shared evidence platform shaped by virologists, cancer researchers, clinicians, and communities.</p>
-          <a className="button button-dark" href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer">Submit a biomarker <ArrowRight size={17} /></a>
-        </div>
-        <div className="steps">
-          <article><span>01</span><div><BookOpen /><h3>Contribute</h3><p>Share published or unpublished African cancer biomarker findings through the project form.</p></div></article>
-          <article><span>02</span><div><ShieldCheck /><h3>Review</h3><p>Records are structured with provenance, study context, and evidence quality in view.</p></div></article>
-          <article><span>03</span><div><Database /><h3>Discover</h3><p>Explore a growing, searchable knowledge base built for reuse and collaboration.</p></div></article>
+          {actors.map(({ icon: Icon, title, text }, index) => <article key={title}><span>0{index + 1}</span><Icon /><h3>{title}</h3><p>{text}</p><Link href={title === "Patients & families" ? "/methods#glossary" : "/explore"}>Follow this path <ArrowRight size={14} /></Link></article>)}
         </div>
       </section>
 
       <section className="team-section" id="team">
-        <div className="section-heading team-heading">
-          <div><p className="section-kicker">The people behind the platform</p><h2>Open science starts<br />with collaboration.</h2></div>
-          <p>ACBD brings together varied backgrounds and expertise around one shared ambition: more representative cancer-virus evidence.</p>
+        <div className="section-heading">
+          <div><p className="section-kicker">The initiative</p><h2>Stewarded by people.<br />Built in the open.</h2></div>
+          <p>The team brings biomedical research, molecular biology, One Health, open science, and community-building perspectives to ACBDT.</p>
         </div>
         <div className="team-grid">
-          {team.map((member) => (
-            <article className="team-card" key={member.name}>
-              <div className="team-avatar">
-                <Image
-                  src={member.photo}
-                  alt={`${member.name}, ${member.role}`}
-                  fill
-                  sizes="(max-width: 520px) 100vw, (max-width: 1050px) 50vw, 20vw"
-                  style={{ objectPosition: member.position }}
-                />
+          {team.map((member) => <article className={`team-card${member.confirmed ? "" : " team-card-pending"}`} key={member.name}>
+            <div className="team-photo"><Image src={member.photo} alt={member.name} fill sizes="(max-width: 520px) 100vw, (max-width: 1080px) 50vw, 33vw" style={{ objectPosition: member.position }} /><span>{member.confirmed ? "Team profile" : "Profile pending"}</span></div>
+            <div className="team-card-copy"><p className="team-location"><MapPin size={12} />{member.country}</p><h3>{member.name}</h3><p className="team-role">{member.role}</p></div>
+            <details className="team-profile">
+              <summary>View full profile <ChevronDown size={15} /></summary>
+              <div className="team-profile-content">
+                <div className="institute-row"><Building2 size={16} /><p><small>Primary institute</small>{member.primaryInstitute}</p></div>
+                {member.secondaryInstitute && <div className="institute-row"><Building2 size={16} /><p><small>Secondary institute</small>{member.secondaryInstitute}</p></div>}
+                <p className="team-bio">{member.bio}</p>
+                {member.email ? <a className="team-email" href={`mailto:${member.email}`}><Mail size={14} />{member.email}</a> : <p className="team-profile-note">Biography and contact details awaiting confirmation.</p>}
               </div>
-              <div><h3>{member.name}</h3><p>{member.role}</p></div>
-              <a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer" aria-label={`${member.name} on GitHub`}><Github size={18} /></a>
-            </article>
-          ))}
+            </details>
+          </article>)}
         </div>
       </section>
 
       <section className="final-cta">
-        <div><p className="section-kicker light">Help the evidence grow</p><h2>Your finding could<br />change the picture.</h2></div>
-        <div><p>Contribute a biomarker, improve the repository, or join the open-source community.</p><a className="button button-cream" href="https://forms.gle/dt2SaWUz7rH8JkKi8" target="_blank" rel="noreferrer">Contribute to ACBD <ArrowRight size={17} /></a></div>
+        <div><p className="section-kicker">Build the evidence layer</p><h2>Contribute data.<br />Keep the source attached.</h2></div>
+        <div><p>Join the scientific review, improve the open ingestion workflow, or contribute an Africa-centred study for screening.</p><Link className="button button-primary" href="/methods#contribute">See contribution pathways <ArrowRight size={16} /></Link></div>
       </section>
-
-      <footer>
-        <div className="footer-main">
-          <a className="brand footer-brand" href="#top"><span className="brand-mark"><span /><span /><span /></span><span className="brand-copy"><strong>ACBD</strong><small>Africa Cancer Biomarkers Database</small></span></a>
-          <p>Built in the open for a more representative future in cancer research and care.</p>
-          <div className="footer-links"><a href="#database">Database</a><a href="#about">About</a><a href="#team">Team</a><a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer">GitHub ↗</a></div>
-        </div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} Africa Cancer Biomarkers Database</span><span>Open access · Community led · Africa centred</span></div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
