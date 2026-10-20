@@ -9,10 +9,10 @@ type SiteHeaderProps = {
 const navigation = [
   { href: "/explore", label: "Explore" },
   { href: "/atlas", label: "Cancer Atlas" },
-  { href: "/explore?view=biomarkers", label: "Biomarkers" },
-  { href: "/explore?view=evidence", label: "Evidence" },
+  { href: "/biomarkers", label: "Biomarkers" },
+  { href: "/evidence", label: "Evidence" },
   { href: "/methods", label: "Learn" },
-  { href: "/#about", label: "About" },
+  { href: "/about", label: "About" },
 ];
 
 export function SiteHeader({ tone = "light" }: SiteHeaderProps) {

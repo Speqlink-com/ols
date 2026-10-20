@@ -1,0 +1,12 @@
+.git
+.github
+node_modules
+.next
+ols-bkd
+apps
+packages
+.env
+.env.*
+!.env.example
+docs
+*.dmg

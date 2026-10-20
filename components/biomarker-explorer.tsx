@@ -2,16 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, ArrowUpDown, Check, ChevronLeft, ChevronRight, Copy, Download, ExternalLink, Filter, Search, Share2, X } from "lucide-react";
+import type { EvidenceRecord } from "@/lib/contracts";
 
-type Status = "Unscreened" | "Requires full text" | "Cohort verified";
-type MarkerEntity = "Protein" | "Gene" | "Variant" | "Viral DNA" | "Assay panel";
-type RecordItem = {
-  id: string; marker: string; measuredTarget: string; entity: MarkerEntity; cancer: string; country: string;
-  region: "Western Africa"; assay: string; role: "Diagnostic" | "Predictive" | "Prognostic" | "Risk";
-  year: number; status: Status; matchBasis: string; note: string;
-};
-
-const records: RecordItem[] = [
+export const fixtureRecords: EvidenceRecord[] = [
   { id: "ACBDT-DEMO-001", marker: "HER2", measuredTarget: "ERBB2-encoded protein", entity: "Protein", cancer: "Breast cancer", country: "Ghana", region: "Western Africa", assay: "IHC", role: "Predictive", year: 2023, status: "Cohort verified", matchBasis: "Synthetic verified-cohort fixture", note: "Demonstrates a protein-level finding kept separate from the ERBB2 gene and the assay used to measure it." },
   { id: "ACBDT-DEMO-002", marker: "HPV-16 DNA", measuredTarget: "HPV16 genomic DNA", entity: "Viral DNA", cancer: "Cervical cancer", country: "Nigeria", region: "Western Africa", assay: "PCR", role: "Risk", year: 2024, status: "Requires full text", matchBasis: "Country and cancer found in abstract", note: "Full text is required before the recruitment country, sample origin, and assay details can be verified." },
   { id: "ACBDT-DEMO-003", marker: "PSA", measuredTarget: "KLK3 protein", entity: "Protein", cancer: "Prostate cancer", country: "Benin", region: "Western Africa", assay: "Immunoassay", role: "Diagnostic", year: 2022, status: "Unscreened", matchBasis: "Benin country term in title/abstract", note: "The review step must rule out Benin City, Nigeria before assigning this publication to the country Benin." },
@@ -29,7 +22,17 @@ const pageSize = 6;
 
 type InitialFilters = Partial<Record<"q" | "country" | "cancer" | "entity" | "status" | "role", string>>;
 
-export function BiomarkerExplorer({ initialFilters = {} }: { initialFilters?: InitialFilters }) {
+export function BiomarkerExplorer({
+  initialFilters = {},
+  records = fixtureRecords,
+  dataSource = "fallback",
+  sourceMessage,
+}: {
+  initialFilters?: InitialFilters;
+  records?: EvidenceRecord[];
+  dataSource?: "api" | "fallback";
+  sourceMessage?: string;
+}) {
   const [query, setQuery] = useState(initialFilters.q ?? "");
   const [country, setCountry] = useState(initialFilters.country ?? "All countries");
   const [cancer, setCancer] = useState(initialFilters.cancer ?? "All cancers");
@@ -39,7 +42,7 @@ export function BiomarkerExplorer({ initialFilters = {} }: { initialFilters?: In
   const [sortKey, setSortKey] = useState<SortKey>("marker");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [page, setPage] = useState(1);
-  const [selected, setSelected] = useState<RecordItem | null>(null);
+  const [selected, setSelected] = useState<EvidenceRecord | null>(null);
   const [copied, setCopied] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -63,7 +66,7 @@ export function BiomarkerExplorer({ initialFilters = {} }: { initialFilters?: In
   }).sort((a, b) => {
     const result = String(a[sortKey]).localeCompare(String(b[sortKey]), undefined, { numeric: true });
     return sortDirection === "asc" ? result : -result;
-  }), [query, country, cancer, entity, status, role, sortKey, sortDirection]);
+  }), [records, query, country, cancer, entity, status, role, sortKey, sortDirection]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(page, pageCount);
@@ -104,7 +107,7 @@ export function BiomarkerExplorer({ initialFilters = {} }: { initialFilters?: In
         <FilterSelect label="Role" value={role} onChange={(value) => updateFilter(setRole, value)} all="All roles" values={records.map((item) => item.role)} />
         <button type="button" onClick={resetFilters} disabled={!hasFilters}>Reset</button>
       </div>
-      <div className="demo-notice"><strong>Synthetic interface fixtures</strong><span>These records demonstrate product behavior. They are not real publications or scientific findings and must not be used clinically.</span></div>
+      <div className={`demo-notice${dataSource === "fallback" ? " demo-notice-partial" : ""}`}><strong>{dataSource === "api" ? "API-connected fixtures" : "Offline fallback"}</strong><span>{sourceMessage || "These synthetic records demonstrate product behavior. They are not scientific findings and must not be used clinically."}</span></div>
       <div className="table-wrap">
         <table className="biomarker-table"><thead><tr>
           {([['marker','Biomarker'],['entity','Entity'],['cancer','Cancer'],['country','Country / region'],['role','Role'],['year','Year']] as [SortKey,string][]).map(([key, label]) => <th key={key}><button type="button" onClick={() => toggleSort(key)} className={sortKey === key ? "active" : ""}>{label}{sortIcon(key)}</button></th>)}<th>Review state</th><th><span className="sr-only">Open record</span></th>
