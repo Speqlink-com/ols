@@ -13,7 +13,7 @@ export type TeamMember = {
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Susan Njuki",
+    name: "Dr Susan Njuki",
     role: "Project Lead · Biomedical Scientist",
     country: "Israel",
     primaryInstitute: "Hebrew University of Jerusalem, Jerusalem, Israel",
@@ -24,7 +24,7 @@ export const teamMembers: TeamMember[] = [
     position: "center 34%",
   },
   {
-    name: "Ahmed Abbi Abdille",
+    name: "Dr Ahmed Abbi Abdille",
     role: "Molecular Biologist & Biotechnology Researcher",
     country: "Somalia",
     primaryInstitute: "Global Science University, Somalia",
@@ -35,7 +35,7 @@ export const teamMembers: TeamMember[] = [
     position: "center 28%",
   },
   {
-    name: "George Lugonzo",
+    name: "Mr George Lugonzo",
     role: "One Health Scientist",
     country: "Kenya",
     primaryInstitute: "Kenya Agricultural and Livestock Research Organization (KALRO)",
@@ -45,7 +45,7 @@ export const teamMembers: TeamMember[] = [
     position: "center 25%",
   },
   {
-    name: "Brevin Ochieng Olunga",
+    name: "Mr Brevin Ochieng Olunga",
     role: "Project Research Associate",
     country: "Kenya",
     primaryInstitute: "Kenya Medical Research Institute",
@@ -55,14 +55,14 @@ export const teamMembers: TeamMember[] = [
     position: "center 24%",
   },
   {
-    name: "John Paul Aguta",
+    name: "Aoko John Paul Ogutha",
     role: "Project Collaborator",
-    bio: "John Paul supports the ACBDT collaboration and the development of an open, evidence-traceable research resource. His project profile and institutional affiliations will be expanded as the initiative progresses.",
+    bio: "Aoko John Paul supports the ACBDT collaboration and the development of an open, evidence-traceable research resource. His project profile and institutional affiliations will be expanded as the initiative progresses.",
     photo: "/john paul aguta.jpeg",
     position: "center 22%",
   },
   {
-    name: "Comfortine Siwende",
+    name: "Engineer Comfortine Siwende",
     role: "AI Engineer & Software Developer",
     bio: "Comfortine leads the technical implementation of the ACBDT web platform, translating the project’s scientific evidence model into accessible digital workflows. The work spans product engineering, responsible AI integration, data interfaces, and deployment architecture for an open, maintainable research platform.",
     website: "https://speqlink.com",

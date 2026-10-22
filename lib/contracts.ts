@@ -1,5 +1,6 @@
 export type EvidenceStatus = "Unscreened" | "Requires full text" | "Cohort verified" | "Published";
 export type BiomarkerEntity = "Protein" | "Gene" | "Variant" | "Viral DNA" | "Assay panel";
+export type AfricanRegion = "Northern Africa" | "Western Africa" | "Central Africa" | "Eastern Africa" | "Southern Africa";
 
 export type EvidenceRecord = {
   id: string;
@@ -8,7 +9,7 @@ export type EvidenceRecord = {
   entity: BiomarkerEntity;
   cancer: string;
   country: string;
-  region: "Western Africa";
+  region: AfricanRegion;
   assay: string;
   role: "Diagnostic" | "Predictive" | "Prognostic" | "Risk" | "Monitoring" | "Response" | "Safety";
   year: number;

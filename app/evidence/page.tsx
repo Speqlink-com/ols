@@ -14,14 +14,14 @@ type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 export default async function EvidencePage({ searchParams }: { searchParams: SearchParams }) {
   const [params, evidence] = await Promise.all([searchParams, fetchEvidence()]);
   const read = (key: string) => typeof params[key] === "string" ? params[key] : undefined;
-  const initialFilters = { q: read("q"), country: read("country"), cancer: read("cancer"), entity: read("entity"), status: read("status"), role: read("role") };
+  const initialFilters = { q: read("q"), region: read("region"), country: read("country"), cancer: read("cancer"), entity: read("entity"), assay: read("assay"), status: read("status"), role: read("role"), year: read("year") };
 
   return (
-    <main className="internal-page">
+    <main className="internal-page compact-page">
       <SiteHeader />
-      <section className="page-intro evidence-intro">
+      <section className="page-intro compact-intro evidence-intro">
         <p className="section-kicker">Evidence records</p>
-        <h1>See the finding.<br /><em>See how far it has been reviewed.</em></h1>
+        <h1>See the finding and its review state.</h1>
         <p>Each result exposes its cohort geography, assay, clinical role, and review state. Synthetic fixtures remain clearly marked until reviewer-approved evidence is published.</p>
       </section>
       <BiomarkerExplorer initialFilters={initialFilters} records={evidence.records.length ? evidence.records : fixtureRecords} dataSource={evidence.source} sourceMessage={evidence.message} />

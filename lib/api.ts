@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { BiomarkerEntity, EvidenceRecord, EvidenceStatus } from "@/lib/contracts";
+import type { AfricanRegion, BiomarkerEntity, EvidenceRecord, EvidenceStatus } from "@/lib/contracts";
 
 type ApiEvidenceRecord = {
   id: string;
@@ -33,9 +33,10 @@ export type EvidenceApiResult = {
 const validEntities = new Set(["Protein", "Gene", "Variant", "Viral DNA", "Assay panel"]);
 const validStatuses = new Set(["Unscreened", "Requires full text", "Cohort verified", "Published"]);
 const validRoles = new Set(["Diagnostic", "Predictive", "Prognostic", "Risk", "Monitoring", "Response", "Safety"]);
+const validRegions = new Set(["Northern Africa", "Western Africa", "Central Africa", "Eastern Africa", "Southern Africa"]);
 
 function mapRecord(item: ApiEvidenceRecord): EvidenceRecord | null {
-  if (!validEntities.has(item.entity) || !validStatuses.has(item.review_status) || !validRoles.has(item.role) || item.region !== "Western Africa") return null;
+  if (!validEntities.has(item.entity) || !validStatuses.has(item.review_status) || !validRoles.has(item.role) || !validRegions.has(item.region)) return null;
   return {
     id: item.id,
     marker: item.marker,
@@ -43,7 +44,7 @@ function mapRecord(item: ApiEvidenceRecord): EvidenceRecord | null {
     entity: item.entity as BiomarkerEntity,
     cancer: item.cancer,
     country: item.country,
-    region: "Western Africa",
+    region: item.region as AfricanRegion,
     assay: item.assay,
     role: item.role as EvidenceRecord["role"],
     year: item.year,
