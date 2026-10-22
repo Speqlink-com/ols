@@ -6,8 +6,8 @@ import { SiteHeader } from "@/components/site-header";
 import { teamMembers } from "@/lib/team";
 
 export const metadata: Metadata = {
-  title: "About ACBDT | Team and mission",
-  description: "Meet the multidisciplinary research and technology team building the Africa Cancer Biomarkers Database & Technology platform.",
+  title: "About ACBD | Team and mission",
+  description: "Meet the multidisciplinary research and technology team building the Africa Cancer Biomarkers Database.",
 };
 
 export default function AboutPage() {
@@ -15,9 +15,9 @@ export default function AboutPage() {
     <main className="internal-page compact-page">
       <SiteHeader />
       <section className="page-intro compact-intro">
-        <p className="section-kicker">About ACBDT</p>
+        <p className="section-kicker">About ACBD</p>
         <h1>Evidence with scientific context built in.</h1>
-        <p>ACBDT structures cancer biomarker evidence without separating a finding from its cohort, assay, review status, or original source.</p>
+        <p>ACBD structures cancer biomarker evidence without separating a finding from its cohort, assay, review status, or original source.</p>
       </section>
       <section className="compact-about-content">
         <div className="compact-about-note"><strong>Our approach</strong><p>Reproducible discovery, human scientific review, open methods, and accessible software. Prototype records are clearly labelled and are not clinical guidance.</p></div>

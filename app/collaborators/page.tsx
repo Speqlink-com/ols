@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: "Collaborators | ACBDT",
+  title: "Collaborators | ACBD",
   description: "Institutions and open-science communities collaborating on the Africa Cancer Biomarkers Database.",
 };
 
@@ -22,7 +22,7 @@ export default function CollaboratorsPage() {
       <section className="page-intro compact-intro">
         <p className="section-kicker">Collaborators</p>
         <h1>Built through research partnership.</h1>
-        <p>ACBDT brings together biomedical research, higher education, open science, and responsible technology.</p>
+        <p>ACBD brings together biomedical research, higher education, open science, and responsible technology.</p>
       </section>
       <section className="collaborators-content">
         <div className="collaborator-grid">

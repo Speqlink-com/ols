@@ -60,12 +60,12 @@ export async function fetchEvidence(): Promise<EvidenceApiResult> {
     const response = await fetch(`${apiBaseUrl}/v1/evidence`, {
       cache: "no-store",
       signal: AbortSignal.timeout(4000),
-      headers: { Accept: "application/json", "X-ACBDT-Client": "web/0.2" },
+      headers: { Accept: "application/json", "X-ACBD-Client": "web/0.2" },
     });
     if (!response.ok) throw new Error(`API returned ${response.status}`);
     const payload = await response.json() as ApiCollection<ApiEvidenceRecord>;
     const records = payload.data.map(mapRecord).filter((item): item is EvidenceRecord => item !== null);
-    return { records, source: "api", message: payload.meta.warning || "Connected to the ACBDT API." };
+    return { records, source: "api", message: payload.meta.warning || "Connected to the ACBD API." };
   } catch {
     return {
       records: [],

@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { fetchEvidence } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "Explore evidence | ACBDT",
+  title: "Explore evidence | ACBD",
   description: "Explore synthetic West Africa cancer biomarker evidence fixtures by marker, cancer, country, assay and scientific review state.",
 };
 

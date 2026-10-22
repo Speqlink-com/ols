@@ -5,8 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { fetchEvidence } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "Evidence | ACBDT",
-  description: "Inspect source-linked cancer biomarker evidence and its scientific review state in ACBDT.",
+  title: "Evidence | ACBD",
+  description: "Inspect source-linked cancer biomarker evidence and its scientific review state in ACBD.",
 };
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;

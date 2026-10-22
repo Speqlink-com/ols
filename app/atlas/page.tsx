@@ -4,7 +4,7 @@ import { ArrowRight, MapPinned } from "lucide-react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = { title: "Africa evidence atlas | ACBDT", description: "Regional cancer biomarker evidence discovery across Northern, Western, Central, Eastern, and Southern Africa." };
+export const metadata: Metadata = { title: "Africa evidence atlas | ACBD", description: "Regional cancer biomarker evidence discovery across Northern, Western, Central, Eastern, and Southern Africa." };
 
 const regions = [
   { name: "Northern Africa", countries: "Egypt · Morocco · Tunisia · Algeria", examples: "EGFR · ALK · AFP" },

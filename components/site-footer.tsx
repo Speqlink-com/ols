@@ -14,7 +14,7 @@ export function SiteFooter() {
           <a href="https://github.com/African-Cancer-Biomarkers-Initiative/Open-Access-Cancer-Biomarkers-Database-Africa-OCBDA-" target="_blank" rel="noreferrer">GitHub ↗</a>
         </div>
       </div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} ACBDT</span><span>Open access · Evidence traceable · Africa centred</span></div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} ACBD</span><span>Open access · Evidence traceable · Africa centred</span></div>
     </footer>
   );
 }

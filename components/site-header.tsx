@@ -18,7 +18,7 @@ const navigation = [
 export function SiteHeader({ tone = "light" }: SiteHeaderProps) {
   return (
     <header className={`site-header site-header-${tone}`}>
-      <Link className="brand" href="/" aria-label="ACBDT home">
+      <Link className="brand" href="/" aria-label="ACBD home">
         <Image className="brand-logo-wide" src="/acbd.png" alt="Africa Cancer Biomarkers Database" width={178} height={89} priority />
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
